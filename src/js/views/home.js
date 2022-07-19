@@ -3,7 +3,11 @@ import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 import { Card } from "../component/card";
 import { Context } from "../store/appContext";
-
+import Anakin from "../../img/Hayden-Christensen-regresa-como-Anakin-Skywalker-para-la-serie-live-action-de-Ahsoka-Tano.webp"
+import Starts from "../../img/stars2.jpg"
+import Planets from "../../img/planets.jpeg"
+import Vehicles from "../../img/vehicles.jpg"
+import { Link } from "react-router-dom";
 export const Home = () => {
 	const { store, actions } = useContext(Context);
 	const [people,setPeople]=useState(null)
@@ -41,55 +45,85 @@ export const Home = () => {
 	  }
 
 return(<>
-<div className="row row-cols-3 mt-2  g-4">
-  <div className="col">
-    <div className="card">
-      <img src="..." className="card-img-top" alt="..." />
-      <div className="card-body">
-        <h5 className="card-title">Card title</h5>
+<div className="dropdown">
+  <button
+    className="btn btn-secondary dropdown-toggle"
+    type="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    Dropdown button
+  </button>
+  <ul className="dropdown-menu dropdown-menu-dark">
+    <li>
+      <a className="dropdown-item active" href="#">
+        Action
+      </a>
+    </li>
+    <li>
+      <a className="dropdown-item" href="#">
+        Another action
+      </a>
+    </li>
+    <li>
+      <a className="dropdown-item" href="#">
+        Something else here
+      </a>
+    </li>
+    <li>
+      <hr className="dropdown-divider" />
+    </li>
+    <li>
+      <a className="dropdown-item" href="#">
+        Separated link
+      </a>
+    </li>
+  </ul>
+</div>
+
+<div className="row row-cols-3 mt-2  p-5">
+  
+<div className="col" >
+    <div className="card" style={{ backgroundImage: `url(${Starts})` }}>
+      <img src={Planets} className="card-img-top" alt="..." style={{ height: "300px" }} />
+      <div className="card-body text-warning text-center">
+        <h5 className="card-title">Planets</h5>
         <p className="card-text">
-          This is a longer card with supporting text below as a natural lead-in
-          to additional content. This content is a little bit longer.
+          complet list of planets from star wars, from api
         </p>
+        <Link to="/planets">
+        <button type="button" class="btn btn-warning">Go Whit The Force!</button>
+        </Link>
+      </div>
+    </div>
+   
+  </div><div className="col" >
+    <div className="card" style={{ backgroundImage: `url(${Starts})` }}>
+      <img src={Anakin} className="card-img-top" alt="..." style={{ height: "300px" }}/>
+      <div className="card-body text-warning text-center">
+        <h5 className="card-title">People</h5>
+        <p className="card-text">
+          complet list of people from star wars, from api
+        </p>
+        <Link to="/people">
+        <button type="button" class="btn btn-warning">Go Whit The Force!</button>
+        </Link>
+      </div>
+    </div>
+  </div><div className="col" >
+    <div className="card" style={{ backgroundImage: `url(${Starts})` }}>
+      <img src={Vehicles} className="card-img-top" alt="..." style={{ height: "300px" }}/>
+      <div className="card-body text-warning text-center">
+        <h5 className="card-title">Vehicles</h5>
+        <p className="card-text">
+          complet list of vehicles from star wars, from api
+        </p>
+        <Link to="/vehicles">
+        <button type="button" class="btn btn-warning">Go Whit The Force!</button>
+        </Link>
       </div>
     </div>
   </div>
-  <div className="col">
-    <div className="card">
-      <img src="..." className="card-img-top" alt="..." />
-      <div className="card-body">
-        <h5 className="card-title">Card title</h5>
-        <p className="card-text">
-          This is a longer card with supporting text below as a natural lead-in
-          to additional content. This content is a little bit longer.
-        </p>
-      </div>
-    </div>
-  </div><div className="col">
-    <div className="card">
-      <img src="..." className="card-img-top" alt="..." />
-      <div className="card-body">
-        <h5 className="card-title">Card title</h5>
-        <p className="card-text">
-          This is a longer card with supporting text below as a natural lead-in
-          to additional content. This content is a little bit longer.
-        </p>
-      </div>
-    </div>
-  </div><div className="col">
-    <div className="card">
-      <img src="..." className="card-img-top" alt="..." />
-      <div className="card-body">
-        <h5 className="card-title">Card title</h5>
-        <p className="card-text">
-          This is a longer card with supporting text below as a natural lead-in
-          to additional content. This content is a little bit longer.
-        </p>
-      </div>
-    </div>
-  </div>
-  
-  
 </div>
 
 

@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import Logo from "../../img/STAR_WARS_LOGO.webp";
+import { Context } from "../store/appContext";
+
 
 export const Navbar = () => {
+  const { store } = useContext(Context);
   return (
     <nav className="navbar navbar-expand-lg bg-dark ">
       <div className="container-fluid text-light">
-        <a className="navbar-brand text-light" href="#">
-          Navbar
-        </a>
+        <img src={Logo} style={{ height: "30px" }}></img>
         <button
           className="navbar-toggler"
           type="button"
@@ -22,7 +24,11 @@ export const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link text-light active " aria-current="page" href="#">
+              <a
+                className="nav-link text-light active "
+                aria-current="page"
+                href="#"
+              >
                 Home
               </a>
             </li>
@@ -31,53 +37,52 @@ export const Navbar = () => {
                 Link
               </a>
             </li>
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link text-light dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Dropdown
-              </a>
-              <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Action
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Another action
-                  </a>
-                </li>
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Something else here
-                  </a>
-                </li>
-              </ul>
-            </li>
+
             <li className="nav-item">
               <a className="nav-link text-light disabled">Disabled</a>
             </li>
           </ul>
-          <form className="d-flex" role="search">
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button className="btn btn-outline-success" type="submit">
-              Search
+          <div className="dropdown">
+            <button
+              className="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton1"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Dropdown button
             </button>
-          </form>
+            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              {!!store.favorites &&
+                store.favorites.map((elem, index) => {
+                  //let text = "https://swapi.dev/api/people/1/";
+                  //let id = text.match(/\/\d+/)[0].replace('/', '');
+                  //console.log(id);
+                  return (
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        {elem.name}
+                      </a>
+                    </li>
+                  );
+                })}
+              <li>
+                <a className="dropdown-item" href="#">
+                  Action
+                </a>
+              </li>
+              <li>
+                <a className="dropdown-item" href="#">
+                  Another action
+                </a>
+              </li>
+              <li>
+                <a className="dropdown-item" href="#">
+                  Something else here
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </nav>
