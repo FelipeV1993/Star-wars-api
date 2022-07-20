@@ -11,7 +11,7 @@ import Defecto from "../../img/defecto.jpg"
 import { Link } from "react-router-dom";
 
 export const Vehicle = () => {
-  const { store } = useContext(Context);
+  const { store, actions } = useContext(Context);
   
   
   function test() {
@@ -20,7 +20,7 @@ export const Vehicle = () => {
 
   return (
     <>
-      <button onClick={test}>test</button>
+      {/* <button onClick={test}>test</button> */}
       <div className="row row-cols-3 mt-2  p-5">
   
           {!!store.vehicles && store.vehicles.results.map((elem, index) => {
@@ -36,9 +36,9 @@ export const Vehicle = () => {
                   <p className="card-text">
                   model: {elem.model}<br/> manufacturer: {elem.manufacturer}<br/>cost_in_credits: {elem.cost_in_credits}
                   </p>
-                  <Link to="/planets">
-                  <button type="button" class="btn btn-warning">Go Whit The Force!</button>
-                  </Link>
+                  <button type="button" class="btn btn-warning" onClick={() => {
+              actions.addFavorites(elem.name)
+            }}>Go Whit The Force!</button>
                 </div>
               </div>
              

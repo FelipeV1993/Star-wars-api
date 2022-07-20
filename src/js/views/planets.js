@@ -10,7 +10,7 @@ import Vehicles from "../../img/vehicles.jpg";
 import Defecto from "../../img/defecto.jpg"
 import { Link } from "react-router-dom";
 export const Plamets = () => {
-  const { store } = useContext(Context);
+  const { store, actions } = useContext(Context);
   
   
   function test() {
@@ -19,7 +19,7 @@ export const Plamets = () => {
 
   return (
     <>
-      <button onClick={test}>test</button>
+      {/* <button onClick={test}>test</button> */}
       <div className="row row-cols-3 mt-2  p-5">
   
           {!!store.planets && store.planets.results.map((elem, index) => {
@@ -35,9 +35,9 @@ export const Plamets = () => {
                   <p className="card-text">
                   rotation period: {elem.rotation_period}<br/> orbital period: {elem.orbital_period}kg<br/>climate: {elem.climate}
                   </p>
-                  <Link to="/planets">
-                  <button type="button" class="btn btn-warning">Go Whit The Force!</button>
-                  </Link>
+                  <button type="button" class="btn btn-warning" onClick={() => {
+              actions.addFavorites(elem.name)
+            }}>Go Whit The Force!</button>
                 </div>
               </div>
              

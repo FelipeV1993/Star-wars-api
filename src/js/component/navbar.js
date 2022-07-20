@@ -4,8 +4,10 @@ import Logo from "../../img/STAR_WARS_LOGO.webp";
 import { Context } from "../store/appContext";
 
 
+
 export const Navbar = () => {
-  const { store } = useContext(Context);
+ 
+  const { store, actions } = useContext(Context);
   return (
     <nav className="navbar navbar-expand-lg bg-dark ">
       <div className="container-fluid text-light">
@@ -24,33 +26,52 @@ export const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a
+              <Link
                 className="nav-link text-light active "
                 aria-current="page"
-                href="#"
+                to="/"
               >
                 Home
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link text-light" href="#">
-                Link
-              </a>
+              <Link
+                className="nav-link text-light active "
+                aria-current="page"
+                to="/people"
+              >
+                people
+              </Link>
             </li>
-
             <li className="nav-item">
-              <a className="nav-link text-light disabled">Disabled</a>
+              <Link
+                className="nav-link text-light active "
+                aria-current="page"
+                to="/vehicles"
+              >
+                vehicles
+              </Link>
             </li>
+            <li className="nav-item">
+              <Link
+                className="nav-link text-light active "
+                aria-current="page"
+                to="/planets"
+              >
+                Planets
+              </Link>
+            </li>
+            
           </ul>
           <div className="dropdown">
             <button
-              className="btn btn-secondary dropdown-toggle"
+              className="btn btn-warning dropdown-toggle"
               type="button"
               id="dropdownMenuButton1"
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              Dropdown button
+              Favorites({store.favorites.length>0?store.favorites.length:<i class="fas fa-heart"></i>})
             </button>
             <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
               {!!store.favorites &&
@@ -59,9 +80,11 @@ export const Navbar = () => {
                   //let id = text.match(/\/\d+/)[0].replace('/', '');
                   //console.log(id);
                   return (
-                    <li>
+                    <li key={index}>
                       <a className="dropdown-item" href="#">
-                        {elem.name}
+                        {index}{elem.name}<i class="fas fa-trash" onClick={() => {
+              actions.deletedFavorite(elem.name)
+            }}></i>
                       </a>
                     </li>
                   );
