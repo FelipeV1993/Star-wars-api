@@ -63,7 +63,7 @@ export const Navbar = () => {
             </li>
             
           </ul>
-          <div className="dropdown">
+          <div className="dropdown ">
             <button
               className="btn btn-warning dropdown-toggle"
               type="button"
@@ -73,7 +73,7 @@ export const Navbar = () => {
             >
               Favorites({store.favorites.length>0?store.favorites.length:<i class="fas fa-heart"></i>})
             </button>
-            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1" >
               {!!store.favorites &&
                 store.favorites.map((elem, index) => {
                   //let text = "https://swapi.dev/api/people/1/";

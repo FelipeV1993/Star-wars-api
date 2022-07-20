@@ -21,7 +21,7 @@ export const Vehicle = () => {
   return (
     <>
       {/* <button onClick={test}>test</button> */}
-      <div className="row row-cols-3 mt-2  p-5">
+      <div className="row row-cols-3 mt-2  p-5" style={{width:"100%"}}>
   
           {!!store.vehicles && store.vehicles.results.map((elem, index) => {
               //let text = "https://swapi.dev/api/vehicles/1/";

@@ -20,7 +20,7 @@ export const Plamets = () => {
   return (
     <>
       {/* <button onClick={test}>test</button> */}
-      <div className="row row-cols-3 mt-2  p-5">
+      <div className="row row-cols-3 mt-2  p-5" style={{width:"100%"}}>
   
           {!!store.planets && store.planets.results.map((elem, index) => {
               //let text = "https://swapi.dev/api/planets/1/";

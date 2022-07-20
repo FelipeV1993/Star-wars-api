@@ -46,7 +46,7 @@ export const Home = () => {
 
   return (
     <>
-      <div className="row row-cols-3 mt-2  p-5">
+      <div className="row row-cols-3 mt-2  p-5" style={{width:"100%"}}>
         <div className="col">
           <div className="card" style={{ backgroundImage: `url(${Starts})` }}>
             <img

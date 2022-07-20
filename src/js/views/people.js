@@ -26,7 +26,7 @@ export const People = () => {
     </div>
       {/* <button onClick={test}>test</button>
       <button onClick={test2}>test2</button> */}
-      <div className="row row-cols-3 mt-2  p-5">
+      <div className="row row-cols-3 mt-2  pe-3" style={{width:"100%"}}>
   
           {!!store.people && store.people.results.map((elem, index) => {
               //let text = "https://swapi.dev/api/people/1/";
