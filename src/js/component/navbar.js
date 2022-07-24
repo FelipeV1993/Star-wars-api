@@ -3,15 +3,18 @@ import { Link } from "react-router-dom";
 import Logo from "../../img/STAR_WARS_LOGO.webp";
 import { Context } from "../store/appContext";
 
-
-
 export const Navbar = () => {
- 
   const { store, actions } = useContext(Context);
   return (
     <nav className="navbar navbar-expand-lg bg-dark ">
       <div className="container-fluid text-light">
-        <img src={Logo} style={{ height: "30px" }}></img>
+        <Link
+          className="nav-link text-light active "
+          aria-current="page"
+          to="/"
+        >
+          <img src={Logo} style={{ height: "30px" }}></img>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -61,7 +64,6 @@ export const Navbar = () => {
                 Planets
               </Link>
             </li>
-            
           </ul>
           <div className="dropdown ">
             <button
@@ -71,9 +73,17 @@ export const Navbar = () => {
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              Favorites({store.favorites.length>0?store.favorites.length:<i class="fas fa-heart"></i>})
+              Favorites&nbsp;
+              {store.favorites.length > 0 ? (
+                `(${store.favorites.length})`
+              ) : (
+                <i class="fas fa-heart"></i>
+              )}
             </button>
-            <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1" >
+            <ul
+              className="dropdown-menu dropdown-menu-end"
+              aria-labelledby="dropdownMenuButton1"
+            >
               {!!store.favorites &&
                 store.favorites.map((elem, index) => {
                   //let text = "https://swapi.dev/api/people/1/";
@@ -82,28 +92,18 @@ export const Navbar = () => {
                   return (
                     <li key={index}>
                       <a className="dropdown-item" href="#">
-                        {index}{elem.name}<i class="fas fa-trash" onClick={() => {
-              actions.deletedFavorite(elem.name)
-            }}></i>
+                        {index}
+                        {elem.name}
+                        <i
+                          class="fas fa-trash"
+                          onClick={() => {
+                            actions.deletedFavorite(elem.name);
+                          }}
+                        ></i>
                       </a>
                     </li>
                   );
                 })}
-              <li>
-                <a className="dropdown-item" href="#">
-                  Action
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="#">
-                  Another action
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="#">
-                  Something else here
-                </a>
-              </li>
             </ul>
           </div>
         </div>

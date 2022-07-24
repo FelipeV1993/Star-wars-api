@@ -37,7 +37,8 @@ export const Plamets = () => {
                   </p>
                   <button type="button" class="btn btn-warning" onClick={() => {
               actions.addFavorites(elem.name)
-            }}>Go Whit The Force!</button>
+            }}>Go Whit The Force!&nbsp; <i class="fas fa-heart"></i>
+            </button>
                 </div>
               </div>
              

@@ -21,12 +21,10 @@ export const People = () => {
   }
   return (
     <>
-    <div>
 
-    </div>
       {/* <button onClick={test}>test</button>
       <button onClick={test2}>test2</button> */}
-      <div className="row row-cols-3 mt-2  pe-3" style={{width:"100%"}}>
+      <div className="row row-cols-3 mt-2  p-5" style={{width:"100%"}}>
   
           {!!store.people && store.people.results.map((elem, index) => {
               //let text = "https://swapi.dev/api/people/1/";
@@ -44,7 +42,7 @@ export const People = () => {
 
                   <button type="button" class="btn btn-warning" onClick={() => {
               actions.addFavorites(elem.name)
-            }}>Go Whit The Force!</button>
+            }}>Go Whit The Force!&nbsp; <i class="fas fa-heart"></i></button>
 
                 </div>
               </div>

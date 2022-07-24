@@ -15,11 +15,12 @@ export const Vehicle = () => {
   
   
   function test() {
-    console.log(store.vehicles.results);
+    console.log(store.vehicles);
   }
 
   return (
     <>
+    {/* <button onClick={test}>test</button> */}
       {/* <button onClick={test}>test</button> */}
       <div className="row row-cols-3 mt-2  p-5" style={{width:"100%"}}>
   
@@ -38,7 +39,7 @@ export const Vehicle = () => {
                   </p>
                   <button type="button" class="btn btn-warning" onClick={() => {
               actions.addFavorites(elem.name)
-            }}>Go Whit The Force!</button>
+            }}>Go Whit The Force!&nbsp; <i class="fas fa-heart"></i></button>
                 </div>
               </div>
              

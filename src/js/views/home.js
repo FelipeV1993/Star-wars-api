@@ -62,7 +62,7 @@ export const Home = () => {
               </p>
               <Link to="/planets">
                 <button type="button" class="btn btn-warning">
-                  Go Whit The Force!
+                  Go Whit The Force!<i class="fas fa-rocket"></i>
                 </button>
               </Link>
             </div>
@@ -83,7 +83,7 @@ export const Home = () => {
               </p>
               <Link to="/people">
                 <button type="button" class="btn btn-warning">
-                  Go Whit The Force!
+                  Go Whit The Force!<i class="fas fa-rocket"></i>
                 </button>
               </Link>
             </div>
@@ -104,7 +104,7 @@ export const Home = () => {
               </p>
               <Link to="/vehicles">
                 <button type="button" class="btn btn-warning">
-                  Go Whit The Force!
+                  Go Whit The Force!<i class="fas fa-rocket"></i>
                 </button>
               </Link>
             </div>
